@@ -29,6 +29,7 @@ A segmented confidence scale for jsPsych.
 | `button_label` | `STRING` | `"Submit"` | Submit button text. |
 | `width_px` | `INT` | `980` | Max content width of the scale “card”. |
 | `track_height_px` | `INT` | `34` | Height of the slider track. |
+| `start_value` | `INT` | `NULL` | If specified, the thumb is shown at specified point |
 | `block_bg` | `STRING (CSS color)` | `#A3A3A3` | Background color of the trial block (full viewport). |
 
 **Behavioral details**
