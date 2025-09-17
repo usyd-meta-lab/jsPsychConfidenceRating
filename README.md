@@ -9,35 +9,6 @@ A segmented confidence scale for jsPsych.
 
 ---
 
-## Installation
-
-### Script tag (IIFE, matches official plugin style)
-Include jsPsych v8 and this plugin in your page (after jsPsych):
-
-```html
-<script src="https://unpkg.com/jspsych@8/dist/index.browser.js"></script>
-<script src="assets/js/plugin-confidence-rating.js"></script>
-<script>
-  const jsPsych = initJsPsych();
-  const trial = { type: jsPsychConfidenceRating, n_points: 6 };
-  jsPsych.run([trial]);
-</script>
-```
-
-> The plugin exposes a **class** named `jsPsychConfidenceRating`. Pass that class directly in the trial’s `type`.
-
-### ES module (bundlers)
-If you convert the plugin to an ES module, export the class and import it in your app:
-
-```js
-import jsPsychModule from 'jspsych';
-import ConfidenceRating from './confidence-rating.js';
-
-const jsPsych = jsPsychModule.initJsPsych();
-jsPsych.run([{ type: ConfidenceRating, n_points: 6 }]);
-```
-
----
 
 ## Parameters
 
