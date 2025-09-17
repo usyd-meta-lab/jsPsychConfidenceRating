@@ -63,8 +63,7 @@ Each trial records the following fields:
   type: jsPsychConfidenceRating,
   prompt: "Rate your confidence:",
   n_points: 6,
-  left_label: "Guessing",
-  right_label: "Certain",
+  tick_labels: ["Guessing", "", "", "", "", "Certain"]
   require_response: true,
   button_label: "Submit"
 }
