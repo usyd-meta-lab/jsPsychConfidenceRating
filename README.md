@@ -178,8 +178,4 @@ MIT (same spirit as jsPsych). Include attribution where practical.
 
 ## Citation
 
-If you use this plugin in published work, please cite jsPsych:
 
-> de Leeuw, J. R., Gilbert, R. A., & Luchterhandt, B. (2023). jsPsych: Enabling an Open-Source Collaborative Ecosystem of Behavioral Experiments. *Journal of Open Source Software, 8*(85), 5351. https://doi.org/10.21105/joss.05351
-
-…and (optionally) link to your repository containing this plugin.
