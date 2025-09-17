@@ -87,6 +87,8 @@ var jsPsychConfidenceRating = (function (jspsych) {
       const input = display_element.querySelector("#conf-input");
       const btn   = display_element.querySelector("#conf-btn");
 
+      thumb.setAttribute('aria-hidden', 'true');
+
       // Per-tick labels: if provided, render labels under each tick and remove the left/right pair
       if (Array.isArray(trial.tick_labels) && trial.tick_labels.length) {
         const scaleEl = display_element.querySelector('.jspsych-confscale');
@@ -131,13 +133,33 @@ var jsPsychConfidenceRating = (function (jspsych) {
       positionThumb(1);
       let responded = false;
 
+      if (Number.isInteger(trial.start_value) && trial.start_value >= 1 && trial.start_value <= n) {
+        console.info('[confidence-rating] Applying start_value:', trial.start_value, 'of', n);
+        input.value = String(trial.start_value);
+        // Defer positioning until after layout to avoid rare misplacement on first paint
+        Promise.resolve().then(() => {
+          positionThumb(trial.start_value);
+          thumb.style.display = 'block';
+          thumb.setAttribute('aria-hidden', 'false');
+        });
+        responded = true;
+        if (trial.require_response) btn.disabled = false;
+      } else {
+        if (trial.start_value != null) {
+          console.warn('[confidence-rating] Ignoring invalid start_value:', trial.start_value, 'valid range is 1..'+n);
+        } else {
+          console.debug('[confidence-rating] No start_value provided; thumb will start hidden.');
+        }
+      }
+
       const firstSelect = (e) => {
         const v = valueFromPointer(e, track, n);
         input.value = String(v);
         positionThumb(v);
         if (!responded) {
           responded = true;
-          thumb.style.display = "block"; // reveal thumb only after first interaction
+          thumb.style.display = 'block';
+          thumb.setAttribute('aria-hidden', 'false');
           if (trial.require_response) btn.disabled = false;
         }
       };
