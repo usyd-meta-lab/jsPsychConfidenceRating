@@ -9,6 +9,12 @@ A segmented confidence scale for jsPsych.
 
 ---
 
+## Install
+
+```js
+<script src="https://cdn.jsdelivr.net/gh/usyd-meta-lab/jsPsychConfidenceRating@main/plugin-confidence-rating.js"></script>
+
+```
 
 ## Parameters
 
