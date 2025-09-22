@@ -134,7 +134,6 @@ var jsPsychConfidenceRating = (function (jspsych) {
       let responded = false;
 
       if (Number.isInteger(trial.start_value) && trial.start_value >= 1 && trial.start_value <= n) {
-        console.info('[confidence-rating] Applying start_value:', trial.start_value, 'of', n);
         input.value = String(trial.start_value);
         // Defer positioning until after layout to avoid rare misplacement on first paint
         Promise.resolve().then(() => {
